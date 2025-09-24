@@ -1,66 +1,39 @@
-# 🎓 College Database Management System
+# 🏫 College Database Records
 
-This project demonstrates the creation and management of a relational database for a college using MySQL. It includes two core tables: `studentRecord` and `guardian`, with a foreign key relationship to maintain data integrity.
+This project demonstrates basic SQL operations for managing student and guardian records in a college database using MySQL.
 
-## 📁 Project Overview
+## 📋 Data Inserted
 
-The goal is to build a simple yet structured database that stores student details and their corresponding guardian information. The database supports operations like insertion, deletion, updates, and schema inspection.
+### `studentRecord` Table
+Inserted 10 student records with the following fields:
+- `enroll`: Enrollment number (Primary Key)
+- `fname`, `lname`: Student's first and last name
+- `address`: Residential address
+- `DOB`: Date of birth
+- `religion`: Religion
+- `adhaarNo`: Aadhaar number
 
-## 🛠️ Tasks Performed
+### `guardian` Table
+Inserted 10 guardian records linked to students via `enroll`:
+- `enroll`: Foreign key referencing `studentRecord`
+- `fatherName`, `motherName`: Guardian names
+- `fatherOccupation`: Occupation of the father
+- `familyContact`: Contact number
 
-### 1. Database Setup
-- Created a database named `college`.
-- Selected the database using `USE college`.
+## 🔧 Table Modification
+- Altered `familyContact` column in `guardian` table from `INT` to `BIGINT` to support 10-digit mobile numbers and prevent out-of-range errors.
 
-### 2. Table Creation
+## 🗑️ Data Deletion
 
-#### `studentRecord`
-Stores student information:
-- `enroll`: Primary key (INT)
-- `fname`, `lname`: First and last names (VARCHAR)
-- `address`: Full address (VARCHAR)
-- `DOB`: Date of birth (DATE)
-- `religion`: Religion (VARCHAR)
-- `adhaarNo`: Aadhaar number (VARCHAR)
+To delete the student record with `enroll = 1006`, the following steps were taken:
 
-#### `guardian`
-Stores guardian details:
-- `enroll`: Foreign key referencing `studentRecord(enroll)`
-- `fatherName`, `motherName`: Guardian names (VARCHAR)
-- `fatherOccupation`: Occupation (VARCHAR)
-- `familyContact`: Contact number (BIGINT)
+1. **Deleted the guardian record first**:
+   ```sql
+   DELETE FROM guardian WHERE enroll = 1006;
 
-### 3. Data Insertion
-- Inserted 10 sample records into `studentRecord`.
-- Inserted 10 matching records into `guardian`.
+2. **Then deleted the record from student table**:
+  ```sql
+   DELETE FROM studentRecord WHERE enroll = 1006;
 
-### 4. Schema Modification
-- Altered `familyContact` to `BIGINT` to support 10-digit mobile numbers.
+   
 
-### 5. Data Manipulation
-- Updated a guardian's `motherName` using `UPDATE`.
-- Deleted a student record after removing the corresponding guardian entry.
-
-### 6. Data Verification
-- Used `SELECT *` to view contents of both tables.
-- Used `DESC` to inspect table structures.
-
-## Outcome
-
-The database now supports:
-- Referential integrity between students and guardians.
-- Safe deletion and updates.
-- Scalable contact storage.
-
-## Technologies Used
-- MySQL
-
-## How to Run
-
-1. Open MySQL Workbench or CLI.
-2. Copy and execute the SQL statements step-by-step.
-3. Verify table creation and data using `SELECT` and `DESC`.
-
----
-
-Feel free to extend this project with additional tables like courses, grades, or attendance. Contributions and suggestions are welcome!
