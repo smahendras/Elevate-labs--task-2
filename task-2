@@ -1,0 +1,39 @@
+INSERT INTO studentRecord 
+(enroll, fname, lname, address, DOB, religion, adhaarNo) VALUES
+(1001, 'Rahul', 'Verma', '123 MG Road, Bhopal', '2002-05-14', 'Hindu', '1234-5678-9012'),
+(1002, 'Priya', 'Sharma', '456 Lake View, Indore', '2003-08-22', 'Jain', '2345-6789-0123'),
+(1003, 'Amit', 'Patel', '789 Green Park, Ujjain', '2001-12-05', 'Muslim', '3456-7890-1234'),
+(1004, 'Sneha', 'Rao', '321 Sunrise Ave, Gwalior', '2002-03-18', 'Christian', '4567-8901-2345'),
+(1005, 'Karan', 'Singh', '654 Hilltop Street, Jabalpur', '2000-11-30', 'Sikh', '5678-9012-3456'),
+(1006, 'Neha', 'Joshi', '987 Riverbank Rd, Sagar', '2003-07-09', 'Hindu', '6789-0123-4567'),
+(1007, 'Ravi', 'Mehta', '159 Rose Lane, Rewa', '2001-09-25', 'Jain', '7890-1234-5678'),
+(1008, 'Anjali', 'Thakur', '753 Lotus Blvd, Satna', '2002-01-12', 'Muslim', '8901-2345-6789'),
+(1009, 'Vikas', 'Choudhary', '852 Palm Street, Damoh', '2000-06-03', 'Christian', '9012-3456-7890'),
+(1010, 'Pooja', 'Mishra', '951 Maple Drive, Katni', '2003-10-27', 'Hindu', '0123-4567-8901');
+
+select * from studentrecord;
+
+ALTER TABLE guardian MODIFY familyContact BIGINT;
+
+INSERT INTO guardian 
+(enroll, fatherName, motherName, fatherOccupation, familyContact) VALUES
+(1001, 'Rajesh Verma', 'Sunita Verma', 'Engineer', 9876543210),
+(1002, 'Manoj Sharma', 'Kavita Sharma', 'Teacher', 9123456780),
+(1003, 'Suresh Patel', 'Meena Patel', 'Farmer', 9988776655),
+(1004, 'Joseph Rao', 'Anita Rao', 'Doctor', 9871234560),
+(1005, 'Harpreet Singh', 'Simran Singh', 'Businessman', 9765432109),
+(1006, 'Ramesh Joshi', 'Pooja Joshi', 'Banker', 9345678901),
+(1007, 'Mahesh Mehta', 'Neelam Mehta', 'Lawyer', 9456781230),
+(1008, 'Iqbal Thakur', 'Shabnam Thakur', 'Shopkeeper', 9567890123),
+(1009, 'Peter Choudhary', 'Mary Choudhary', 'Architect', 9678901234),
+(1010, 'Anil Mishra', 'Rekha Mishra', 'Accountant', 9789012345);
+
+
+select * from guardian;
+select * from studentrecord;
+
+DELETE FROM guardian
+WHERE enroll = 1006;
+
+DELETE FROM studentRecord
+WHERE enroll = 1006;
